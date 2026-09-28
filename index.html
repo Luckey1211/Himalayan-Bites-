@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#193a2a">
+  <meta name="description" content="Discover Himalayan Bites Ghugute, a traditional Uttarakhand treat made for sharing.">
+  <title>Himalayan Bites — Tradition, made to be shared</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #193a2a;
+      --green-2: #315d40;
+      --sage: #a8b79a;
+      --cream: #f5f1e8;
+      --paper: #fffdf8;
+      --ink: #242d27;
+      --muted: #687169;
+      --gold: #c99e5b;
+      --line: #e6e2d8;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+      --width: 1160px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.65 var(--sans); }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    a:focus-visible, summary:focus-visible, button:focus-visible {
+      outline: 3px solid var(--gold); outline-offset: 4px;
+    }
+    .container { width: min(var(--width), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow {
+      margin: 0 0 12px; color: var(--green-2); font-size: .72rem;
+      font-weight: 700; letter-spacing: .17em; text-transform: uppercase;
+    }
+    .section-title {
+      margin: 0; color: var(--green); font: 600 clamp(2rem, 4.3vw, 3.35rem)/1.12 var(--serif);
+      letter-spacing: -.025em; text-wrap: balance;
+    }
+    .section-head { max-width: 720px; margin: 0 auto 52px; text-align: center; }
+    .section-head > p:last-child { max-width: 620px; margin: 16px auto 0; color: var(--muted); }
+    .button {
+      display: inline-flex; min-height: 50px; align-items: center; justify-content: center;
+      gap: 10px; padding: 12px 22px; border: 1px solid var(--green); border-radius: 3px;
+      background: var(--green); color: white; font-size: .9rem; font-weight: 700;
+      text-decoration: none; transition: background .2s, transform .2s;
+    }
+    .button:hover { transform: translateY(-2px); background: var(--green-2); }
+    .button-outline { border-color: rgba(255,255,255,.7); background: transparent; }
+    .button-outline:hover { background: rgba(255,255,255,.12); }
+
+    /* Header */
+    .header {
+      position: sticky; z-index: 5; top: 0; border-bottom: 1px solid rgba(25,58,42,.09);
+      background: rgba(255,253,248,.96); backdrop-filter: blur(14px);
+    }
+    .header-inner { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--green); font: 700 1.16rem var(--serif); text-decoration: none; white-space: nowrap; }
+    .brand-symbol {
+      display: grid; width: 38px; height: 38px; place-items: center; border-radius: 50%;
+      background: var(--green); color: white; font: 700 .75rem var(--sans); letter-spacing: .04em;
+    }
+    .nav { display: flex; align-items: center; gap: clamp(15px, 2.6vw, 32px); }
+    .nav a { color: #38433b; font-size: .84rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
+    .nav a:hover { color: var(--green-2); }
+    .nav .nav-button { padding: 10px 15px; border-radius: 3px; background: var(--green); color: white; }
+    .nav .nav-button:hover { background: var(--green-2); color: white; }
+
+    /* Hero */
+    .hero {
+      position: relative; display: flex; min-height: min(720px, calc(100svh - 76px));
+      align-items: center; overflow: hidden; background: #394b3d; color: white;
+    }
+    .hero::before {
+      position: absolute; inset: 0; background:
+        linear-gradient(90deg, rgba(13,31,21,.82) 0%, rgba(13,31,21,.49) 54%, rgba(13,31,21,.13) 100%),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=85") center 53%/cover;
+      content: "";
+    }
+    .hero-content { position: relative; width: min(720px, 100%); padding-block: 100px; }
+    .hero .eyebrow { color: #e1c994; }
+    .hero h1 { margin: 0; font: 600 clamp(3.1rem, 8vw, 6.6rem)/.99 var(--serif); letter-spacing: -.04em; text-wrap: balance; }
+    .hero-copy { max-width: 550px; margin: 24px 0 30px; color: rgba(255,255,255,.88); font-size: clamp(1.02rem, 2vw, 1.22rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero .button:not(.button-outline) { border-color: #f5f1e8; background: #f5f1e8; color: var(--green); }
+    .hero .button:not(.button-outline):hover { background: white; }
+    .hero-tagline { margin: 34px 0 0; color: rgba(255,255,255,.77); font-size: .8rem; letter-spacing: .08em; }
+
+    /* Highlights */
+    .highlights { border-bottom: 1px solid var(--line); background: var(--paper); }
+    .highlight-row { display: grid; grid-template-columns: repeat(3, 1fr); padding: 13px 0; }
+    .highlight { padding: 10px 18px; color: var(--green); text-align: center; font-size: .83rem; font-weight: 700; }
+    .highlight + .highlight { border-left: 1px solid var(--line); }
+
+    /* Product */
+    .product { padding-block: clamp(76px, 10vw, 132px); }
+    .product-grid { display: grid; grid-template-columns: 1fr .88fr; align-items: center; gap: clamp(38px, 8vw, 105px); }
+    .product-art {
+      position: relative; min-height: 475px; overflow: hidden; background: var(--cream);
+    }
+    .product-art img { width: 100%; height: 100%; min-height: 475px; object-fit: cover; }
+    .image-note {
+      position: absolute; right: 18px; bottom: 18px; padding: 9px 13px;
+      background: var(--paper); color: var(--green); font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+    .product-copy .section-title { margin-bottom: 18px; }
+    .product-copy > p:not(.eyebrow) { color: var(--muted); }
+    .product-list { display: grid; gap: 9px; margin: 24px 0 30px; padding: 0; list-style: none; }
+    .product-list li { display: flex; gap: 10px; align-items: baseline; }
+    .product-list li::before { color: var(--gold); content: "✳"; font-size: .78rem; }
+    .inline-link { color: var(--green); font-weight: 700; text-underline-offset: 4px; }
+
+    /* Story */
+    .story { padding-block: clamp(76px, 10vw, 132px); background: var(--cream); }
+    .story-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(35px, 8vw, 110px); align-items: start; }
+    .story-title { position: sticky; top: 110px; }
+    .story-copy { max-width: 680px; color: #566057; }
+    .story-copy p { margin: 0 0 18px; }
+    .story-copy blockquote {
+      margin: 30px 0 0; padding: 13px 0 13px 20px; border-left: 3px solid var(--gold);
+      color: var(--green); font: italic 1.2rem/1.55 var(--serif);
+    }
+
+    /* Details */
+    .details { padding-block: clamp(76px, 10vw, 132px); }
+    .details-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 20px; align-items: start; }
+    .card { min-width: 0; padding: clamp(24px, 4vw, 40px); border: 1px solid var(--line); background: white; }
+    .card h3 { margin: 0 0 10px; color: var(--green); font: 600 1.55rem/1.3 var(--serif); }
+    .card > p { margin: 0; color: var(--muted); }
+    .ingredient-list { display: grid; gap: 13px; margin: 25px 0 0; padding: 0; list-style: none; }
+    .ingredient-list li { display: flex; gap: 11px; align-items: center; }
+    .check {
+      display: grid; width: 23px; height: 23px; flex: 0 0 23px; place-items: center;
+      border-radius: 50%; background: #edf1e8; color: var(--green-2); font-size: .76rem; font-weight: 700;
+    }
+    .nutrition-note { margin: 0 0 13px !important; font-size: .85rem; }
+    .table-scroll { overflow-x: auto; border: 1px solid var(--line); }
+    .nutrition { width: 100%; border-collapse: collapse; text-align: left; font-size: .9rem; }
+    .nutrition th, .nutrition td { padding: 11px 14px; border-bottom: 1px solid var(--line); }
+    .nutrition thead th { background: var(--cream); color: var(--green); }
+    .nutrition tbody th { font-weight: 400; }
+    .nutrition td { white-space: nowrap; }
+    .nutrition tbody tr:last-child th, .nutrition tbody tr:last-child td { border-bottom: 0; }
+
+    /* Experience */
+    .experience { padding-block: clamp(76px, 10vw, 132px); background: var(--green); color: white; }
+    .experience .section-title { color: white; }
+    .experience .eyebrow { color: #e1c994; }
+    .experience .section-head > p:last-child { color: rgba(255,255,255,.75); }
+    .experience-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .experience-card { padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.055); }
+    .experience-card .number { color: #e1c994; font-size: .72rem; font-weight: 700; letter-spacing: .14em; }
+    .experience-card h3 { margin: 12px 0 8px; font: 600 1.5rem var(--serif); }
+    .experience-card p { margin: 0; color: rgba(255,255,255,.76); }
+
+    /* Support */
+    .support { padding-block: clamp(76px, 10vw, 132px); background: var(--cream); }
+    .support-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(30px, 7vw, 90px); align-items: start; }
+    .contact-card { padding: 28px; background: var(--paper); }
+    .contact-card h3, .faq h3 { margin: 0 0 12px; color: var(--green); font: 600 1.5rem var(--serif); }
+    .contact-card p { color: var(--muted); }
+    .contact-card a { display: inline-block; margin-top: 7px; color: var(--green); font-weight: 700; overflow-wrap: anywhere; }
+    .faq-item { border-bottom: 1px solid #dcd9cf; }
+    .faq-item summary { padding: 16px 25px 16px 0; color: var(--green); cursor: pointer; font-weight: 700; list-style: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { float: right; margin-right: -24px; color: var(--green-2); content: "+"; font-size: 1.2rem; }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-item p { margin: 0; padding: 0 0 17px; color: var(--muted); }
+
+    /* Footer */
+    .footer { padding: 56px 0 18px; background: #10271b; color: white; }
+    .footer-grid { display: grid; grid-template-columns: 1.25fr .7fr 1fr; gap: 42px; padding-bottom: 38px; }
+    .footer-brand { margin: 0 0 10px; font: 600 1.55rem var(--serif); }
+    .footer h3 { margin: 0 0 14px; color: #e1c994; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+    .footer p { max-width: 360px; margin: 0; color: rgba(255,255,255,.7); }
+    .footer-links { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+    .footer a { color: rgba(255,255,255,.82); text-decoration: none; }
+    .footer a:hover { color: #e1c994; text-decoration: underline; text-underline-offset: 3px; }
+    .footer-bottom { padding-top: 17px; border-top: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.6); font-size: .8rem; text-align: center; }
+    .footer-bottom p { max-width: none; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 820px) {
+      .nav { gap: 14px; }
+      .nav a { font-size: .77rem; }
+      .product-grid, .story-grid, .details-grid, .support-grid { grid-template-columns: 1fr; }
+      .product-art, .product-art img { min-height: 390px; }
+      .story-title { position: static; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid > section:first-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 620px) {
+      html { scroll-padding-top: 15px; }
+      .container { width: min(var(--width), calc(100% - 36px)); }
+      .header-inner { align-items: flex-start; flex-direction: column; gap: 11px; padding-block: 12px; }
+      .nav { width: 100%; justify-content: space-between; gap: 13px; overflow-x: auto; padding: 2px 2px 5px; }
+      .nav a { font-size: .75rem; }
+      .nav .nav-button { padding: 7px 10px; }
+      .hero { min-height: 76svh; }
+      .hero::before { background-position: 58% center; }
+      .hero-content { padding-block: 72px; }
+      .highlight-row { grid-template-columns: 1fr; padding-block: 5px; }
+      .highlight { padding: 9px; }
+      .highlight + .highlight { border-top: 1px solid var(--line); border-left: 0; }
+      .product-art, .product-art img { min-height: 300px; }
+      .experience-grid, .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid > section:first-child { grid-column: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Himalayan Bites home">
+        <span class="brand-symbol" aria-hidden="true">HB</span>
+        <span>Himalayan Bites</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#story">Our Story</a>
+        <a href="#ingredients">Ingredients</a>
+        <a href="#experience">Our Promise</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-button" href="#product">Discover Ghugute</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow">A taste of Uttarakhand</p>
+          <h1 id="hero-title">Tradition, made to be shared.</h1>
+          <p class="hero-copy">Meet Ghugute: a much-loved Himalayan sweet, inspired by the warmth of home and the traditions of the mountains.</p>
+          <div class="hero-actions">
+            <a class="button" href="#product">Discover Ghugute <span aria-hidden="true">→</span></a>
+            <a class="button button-outline" href="#story">Our story</a>
+          </div>
+          <p class="hero-tagline">Har Bite Mein Pahadon Ki Shakti</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="highlights" aria-label="Product highlights">
+      <div class="container highlight-row">
+        <div class="highlight">Inspired by Uttarakhand</div>
+        <div class="highlight">Whole wheat &amp; jaggery</div>
+        <div class="highlight">A tradition worth sharing</div>
+      </div>
+    </div>
+
+    <section class="product" id="product" aria-labelledby="product-title">
+      <div class="container product-grid">
+        <div class="product-art">
+          <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1200&q=85" alt="Freshly baked golden treats arranged for sharing">
+          <span class="image-note">A little taste of home</span>
+        </div>
+        <div class="product-copy">
+          <p class="eyebrow">Meet the mountain crunch</p>
+          <h2 class="section-title" id="product-title">A festive favourite, made for everyday moments.</h2>
+          <p>Ghugute brings together a beloved Uttarakhand tradition and the simple pleasure of sharing something delicious. Enjoy it with tea, offer it to guests, or make it part of your own family ritual.</p>
+          <ul class="product-list">
+            <li>Made with whole wheat and jaggery</li>
+            <li>Inspired by the shapes and stories of Ghughutia</li>
+            <li>Thoughtfully packed for gifting and sharing</li>
+          </ul>
+          <a class="inline-link" href="#ingredients">Explore ingredients and nutrition <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="story" aria-labelledby="story-title">
+      <div class="container story-grid">
+        <header class="story-title">
+          <p class="eyebrow">Rooted in tradition</p>
+          <h2 class="section-title" id="story-title">The story of Ghugute</h2>
+        </header>
+        <div class="story-copy">
+          <p>In the hills of Uttarakhand, Makar Sankranti brings the celebration of Ghughutia—a festival that welcomes Uttarayan and the sun’s northward journey. At its heart is Ghugute, a sweet treat shaped and shared across generations.</p>
+          <p>Local legend tells of a clever crow who helped save a young prince. In gratitude, the queen prepared delicacies for the crows. Today, children carry garlands of Ghugute and offer the first bites to the birds, keeping the story and spirit of the festival alive.</p>
+          <p>Families make Ghugute by kneading wheat flour with jaggery and shaping the dough into forms such as flowers, swords, and damarus. Once fried until golden, the treats become part of a celebration that brings food, family, and folklore together.</p>
+          <blockquote>Some traditions are sweetest when they’re passed around.</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="details" id="ingredients" aria-labelledby="ingredients-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Know what’s inside</p>
+          <h2 class="section-title" id="ingredients-title">Simple ingredients. Clear information.</h2>
+          <p>Made with whole wheat and jaggery. Please check the product packaging for the latest ingredient and allergen details.</p>
+        </header>
+        <div class="details-grid">
+          <article class="card">
+            <h3>Our ingredients</h3>
+            <p>Inspired by the traditional Ghugute recipe and its familiar flavours.</p>
+            <ul class="ingredient-list">
+              <li><span class="check" aria-hidden="true">✓</span> Whole wheat</li>
+              <li><span class="check" aria-hidden="true">✓</span> Jaggery</li>
+              <li><span class="check" aria-hidden="true">✓</span> Made for sharing</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Nutrition information</h3>
+            <p class="nutrition-note">Approximate values per 100g</p>
+            <div class="table-scroll" tabindex="0" aria-label="Scrollable nutrition information">
+              <table class="nutrition">
+                <caption class="visually-hidden">Approximate nutrition values per 100 grams</caption>
+                <thead><tr><th scope="col">Parameter</th><th scope="col">Per 100g</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Energy</th><td>430–460 kcal</td></tr>
+                  <tr><th scope="row">Protein</th><td>6–8g</td></tr>
+                  <tr><th scope="row">Total Fat</th><td>12–16g</td></tr>
+                  <tr><th scope="row">Carbohydrates</th><td>70–75g</td></tr>
+                  <tr><th scope="row">Total Sugars</th><td>30–35g</td></tr>
+                  <tr><th scope="row">Added Sugars (Jaggery)</th><td>28–32g</td></tr>
+                  <tr><th scope="row">Dietary Fiber</th><td>4–6g</td></tr>
+                  <tr><th scope="row">Iron</th><td>2–4mg</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">More than a snack</p>
+          <h2 class="section-title" id="experience-title">A little piece of the mountains.</h2>
+          <p>From the first look inside the package to the last bite, every detail is an invitation to share a Himalayan tradition.</p>
+        </header>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <span class="number">01 / THE UNBOXING</span>
+            <h3>A story in every package</h3>
+            <p>A traditional story card brings the meaning behind Ghugute to your table and gives you something lovely to share.</p>
+          </article>
+          <article class="experience-card">
+            <span class="number">02 / THE PROMISE</span>
+            <h3>Made with care</h3>
+            <p>We focus on familiar ingredients and thoughtful preparation. Check each pack for its full ingredient and allergen information.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="support" id="contact" aria-labelledby="support-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Here to help</p>
+          <h2 class="section-title" id="support-title">Questions? Let’s talk.</h2>
+          <p>Our customer care team is happy to help with your questions.</p>
+        </header>
+        <div class="support-grid">
+          <section class="contact-card" aria-labelledby="contact-title">
+            <h3 id="contact-title">Get in touch</h3>
+            <p>For product and order enquiries, send us an email.</p>
+            <a href="mailto:support@himalayanbites.in">support@himalayanbites.in</a>
+          </section>
+          <section class="faq" aria-labelledby="faq-title">
+            <h3 id="faq-title">Frequently asked questions</h3>
+            <details class="faq-item">
+              <summary>Are the ingredients organic?</summary>
+              <p>Please refer to the current product packaging for verified sourcing and certification information.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Do you use artificial preservatives?</summary>
+              <p>Please check the ingredients list on your pack for the most current product information.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How should I store Ghugute?</summary>
+              <p>Store in a cool, dry place away from direct sunlight. Reseal the pouch after opening and follow any storage guidance on the packaging.</p>
+            </details>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <section>
+          <h2 class="footer-brand">Himalayan Bites</h2>
+          <p>Bringing the taste and traditions of Uttarakhand to your home. Har Bite Mein Pahadon Ki Shakti.</p>
+        </section>
+        <nav aria-label="Footer navigation">
+          <h3>Explore</h3>
+          <ul class="footer-links">
+            <li><a href="#story">Our story</a></li>
+            <li><a href="#product">Ghugute</a></li>
+            <li><a href="#ingredients">Ingredients</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <section>
+          <h3>Say hello</h3>
+          <p><a href="mailto:support@himalayanbites.in">support@himalayanbites.in</a></p>
+        </section>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Himalayan Bites. All rights reserved.</p></div>
+    </div>
+  </footer>
+</body>
+</html>
